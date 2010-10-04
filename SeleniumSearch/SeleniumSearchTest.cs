@@ -18,13 +18,13 @@ namespace SeleniumTest
         [TestInitialize()]
         public void MyTestInitialize() 
         {
-            selenium = new DefaultSelenium("localhost", 4441, "*googlechrome", "http://www.google.com.mx/");
+            selenium = new DefaultSelenium("localhost", 4441, "*googlechrome", "http://seleniumhq.org/"); // "*iehta" IE -  "*firefoxproxy" FF - *googlechrome
             selenium.Start();
             selenium.WindowMaximize();
         }
 
         [TestCleanup()]
-        public void MyTestCleanup() 
+        public void MyTestCleanup()
         {
             selenium.Stop();
         }
@@ -32,19 +32,19 @@ namespace SeleniumTest
         [TestMethod]
         public void TestSeleniumSearch1()
         {
-            GoogleSearch("Selenium Search 1");
+            SeleniumPage("Get started with Selenium!");
         }
 
         [TestMethod]
         public void TestSeleniumSearch2()
         {
-            GoogleSearch("Selenium Search 2");
+            SeleniumPage("Watch: see the magic");
         }
 
-        private void GoogleSearch(string keyword)
+        private void SeleniumPage(string keyword)
         {
-            selenium.Open("http://www.google.com");
-            selenium.Type("q", keyword);
+            selenium.Open("http://seleniumhq.org/");
+            Assert.IsTrue(selenium.IsTextPresent(keyword));
         }
     }
 }
