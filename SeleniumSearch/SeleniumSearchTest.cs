@@ -9,6 +9,7 @@ namespace SeleniumTest
 {
     /// <summary>
     /// Summary description for UnitTest1
+	/// Example
     /// </summary>
     [TestClass]
     public class SeleniumSearchTest
